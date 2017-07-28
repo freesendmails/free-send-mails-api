@@ -12,7 +12,6 @@ class Api::V1::MailsController < ApplicationController
       #send mail
       UserMailer.welcome_email(@to_email).deliver_later
       
-      
       redirect_to @url_success
       
     rescue Exception => errors
