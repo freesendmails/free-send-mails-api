@@ -1,19 +1,26 @@
 class Api::V1::MailsController < ApplicationController
 
   def create_mail
-    begin   
+    begin
 
-      @to_email = params[:to]         
+      #to mail
+      @to_email = params[:to]
+      #name
       @name = params[:_name]
+      #email
       @email = params[:_email]
+      #message email
       @message = params[:_message]
+      #subject
+      @subject = params[:_subject] ? params[:_subject] : 'Email sent by Free Send Mails'
+      #url sucess
       @url_success = params[:_url_success]
-    
+
       #send mail
-      UserMailer.welcome_email(@to_email).deliver_later
-      
+      SendMailMailer.send_mail(@to_email, @subject).deliver_later
+
       redirect_to @url_success
-      
+
     rescue Exception => errors
       render json: errors, status: :unprocessable_entity
     end
