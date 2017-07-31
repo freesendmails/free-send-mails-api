@@ -8,12 +8,12 @@ default: &default
 
 development:
   <<: *default
-  database: free-send-mail_development
+  database: free-send-mails-api_development
 
 test:
   <<: *default
-  database: free-send-mail_test
+  database: free-send-mails-api_test
 
 production:
   <<: *default
-  database: free-send-mail_production
+  database: free-send-mails-api_production
