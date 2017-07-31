@@ -12,12 +12,12 @@ class Api::V1::MailsController < ApplicationController
       #message email
       @message = params[:_message]
       #subject
-      @subject = params[:_subject] ? params[:_subject] : 'Email sent by Free Send Mails'
+      @subject = params[:_subject] ? params[:_subject] : 'Email send by - Free Send Mails'
       #url sucess
       @url_success = params[:_url_success]
 
       #send mail
-      SendMailMailer.send_mail(@to_email, @subject).deliver_later
+      SendMailMailer.send_mail(@to_email, @subject, @email, @message).deliver_later
 
       redirect_to @url_success
 
