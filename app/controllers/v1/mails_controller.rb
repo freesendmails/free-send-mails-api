@@ -1,4 +1,4 @@
-class Api::V1::MailsController < ApplicationController
+class V1::MailsController < ApplicationController
 
   def create_mail
     begin
