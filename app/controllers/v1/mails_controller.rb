@@ -19,7 +19,11 @@ class V1::MailsController < ApplicationController
       #send mail
       SendMailMailer.send_mail(@to_email, @subject, @email, @message).deliver_later
 
-      redirect_to @url_success
+      if @url_success != ''
+        redirect_to @url_success
+      else
+        redirect_to "http://www.freesendmails/test-mail-success"
+      end
 
     rescue Exception => errors
       render json: errors, status: :unprocessable_entity
