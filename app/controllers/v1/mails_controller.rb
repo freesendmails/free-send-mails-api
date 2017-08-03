@@ -2,7 +2,7 @@ class V1::MailsController < ApplicationController
 
   def create_mail
     begin
-      byebug
+
       if params[:to] == "" || params[:_name] == "" || params[:_email] == "" || params[:_message] == ""
         redirect_to 'http://www.freesendmails.com/test-mail-error'
       else
