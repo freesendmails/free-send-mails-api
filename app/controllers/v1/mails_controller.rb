@@ -22,7 +22,7 @@ class V1::MailsController < ApplicationController
       if @url_success != nil
         redirect_to @url_success
       else
-        redirect_to "http://www.freesendmails/test-mail-success"
+        redirect_to 'http://www.freesendmails.com/test-mail-success'
       end
 
     rescue Exception => errors
