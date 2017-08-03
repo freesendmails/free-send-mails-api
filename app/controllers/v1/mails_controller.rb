@@ -19,7 +19,7 @@ class V1::MailsController < ApplicationController
       #send mail
       SendMailMailer.send_mail(@to_email, @subject, @email, @message).deliver_later
 
-      if @url_success != ''
+      if @url_success != nil
         redirect_to @url_success
       else
         redirect_to "http://www.freesendmails/test-mail-success"
