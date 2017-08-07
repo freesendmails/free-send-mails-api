@@ -1,4 +1,4 @@
-class V1::MailService
+class MailService
   #set params
   def initialize(params)
     @to_email = params[:to_email]
