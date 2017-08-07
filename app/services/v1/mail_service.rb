@@ -40,10 +40,9 @@ class V1::MailService
 
     #redirect before send mail
     def redirect_to_success
-      unless @url_success == nil
-        @url_success = @redirect_to_success
+      if @url_success == nil
+        return @redirect_to_success
       end
-
       return @url_success
     end
 end
