@@ -19,7 +19,7 @@ class V1::MailService
         return @redirect_to_error
       else
         send_mail
-        return @redirect_to_success
+        return redirect_to_success
       end
     rescue Exception => errors
       return @redirect_to_error
