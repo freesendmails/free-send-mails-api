@@ -9,6 +9,7 @@ class V1::MailsController < ApplicationController
       message: params[:_message],
       subject: params[:_subject],
       url_success: params[:_url_success]).new_mail
+    redirect_to 'http://www.freesendmails.com/test-mail-success'
   end
 
 end
