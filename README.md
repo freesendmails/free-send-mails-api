@@ -1,25 +1,66 @@
-# README
+# Free Send Mails
+
+`free send mails` This project is focused on making an email server available to static sites. In a simple and low code.
+
+`Example:`
+```html
+<form action="http://www.api.freesendmails.com/v1/mails/youmail" method="POST">
+  <div>
+    <label>Name:</label>
+    <input type="text" name="_name">
+  </div>
+  <div>
+    <label>Email address:</label>
+    <input type="email" name="_email">
+  </div>
+  <div>
+    <label>Message:</label>
+    <input type="text" name="_message">
+  </div>
+  <button type="submit">Submit</button>
+</form>
+```
+
+## Demo app
+
+Below you will be redirected to the direct demo of the site and you will also be able to see the two repositories of application codes.
+
+- [Live Demo](http://www.freesendmails.com/test-mail)
+- [Source code - Client](https://github.com/grassiricardo/free-send-mails-client)
+- [Source code - Api](https://github.com/grassiricardo/free-send-mails-api)
+
+## Development
+
+Familiarize yourself with the code and try to follow the same syntax conventions to make it easier for us to accept your pull requests.
 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Getting the Code
 
-Things you may want to cover:
+1. Clone the free-send-mails-api project:
 
-* Ruby version
+  ```shell
+  $ git clone https://github.com/grassiricardo/free-send-mails-api.git
+  $ cd free-send-mails-api
+  ```
 
-* System dependencies
+### Run the application - (Without Docker)
 
-* Configuration
+1. Install dependencies. We assume that you have already installed `Ruby on Rails` in your system.
 
-* Database creation
+  ```shell
+  $ bundler
+  ```
 
-* Database initialization
+2. Run the application.
 
-* How to run the test suite
+  ```shell
+  $ rails s
+  ```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Run the application - (With Docker)
 
-* Deployment instructions
+1. Install dependencies and run application
 
-* ...
+  ```shell
+  $ docker-compose up --build
+  ```
