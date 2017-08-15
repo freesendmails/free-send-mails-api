@@ -18,7 +18,6 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
 
@@ -36,10 +35,10 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = :info
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -67,32 +66,30 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
   # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
+  # config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { :host => "https://free-send-mail.herokuapp.com"}
+  config.action_mailer.default_url_options = { host: 'https://free-send-mail.herokuapp.com' }
 
-  ActionMailer::Base.default :from => 'mail@freesendmails.com'
+  ActionMailer::Base.default from: 'mail@freesendmails.com'
 
   config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => ENV['MAILGUN_SMTP_SERVER'],
-    :port => ENV['MAILGUN_SMTP_PORT'],
-    :domain => ENV['MAILGUN_DOMAIN'],
-    :user_name => ENV['MAILGUN_SMTP_LOGIN'],
-    :password => ENV['MAILGUN_SMTP_PASSWORD']
+    authentication: :plain,
+    address: ENV['MAILGUN_SMTP_SERVER'],
+    port: ENV['MAILGUN_SMTP_PORT'],
+    domain: ENV['MAILGUN_DOMAIN'],
+    user_name: ENV['MAILGUN_SMTP_LOGIN'],
+    password: ENV['MAILGUN_SMTP_PASSWORD']
   }
   # ActionMailer Config
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => "utf-8"
-
-
+  config.action_mailer.default charset: 'utf-8'
 end

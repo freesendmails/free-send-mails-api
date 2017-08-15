@@ -1,48 +1,39 @@
-class V1::MailService
-  #set params
-  def initialize(params)
-    @to_email = params[:to_email]
-    @name = params[:name]
-    @email = params[:email]
-    @message = params[:message]
-    @subject = params[:subject] ? params[:subject] : 'Email send by - Free Send Mails'
-    @url_success = params[:url_success]
+module V1
+  class MailService
+    attr_reader :to_email, :name, :email, :message, :subject, :user_provided_url, :success_url, :error_url
 
-    @redirect_to_error = 'http://www.freesendmails.com/test-mail-error'
-    @redirect_to_success = 'http://www.freesendmails.com/test-mail-success'
-  end
+    def initialize(params)
+      @to_email = params[:to_email]
+      @name = params[:name]
+      @email = params[:email]
+      @message = params[:message]
+      @subject = params[:subject] || 'Email sent by - Free Send Mails'
+      @user_provided_url = params[:url_success]
 
-  #new_mail
-  def new_mail
-    begin
-      if validation_mail
-        return @redirect_to_error
-      else
-        send_mail
-        return redirect_to_success
-      end
-    rescue Exception => errors
-      return @redirect_to_error
+      @error_url = 'http://www.freesendmails.com/test-mail-error'
+      @success_url = 'http://www.freesendmails.com/test-mail-success'
     end
-  end
 
-  private
+    def send_and_redirect
+      return error_url if validation_mail
+      send_mail
+      return redirect_to_success
+    rescue StandardError
+      return error_url
+    end
 
-    #Validation of required fields
+    private
+
     def validation_mail
-      return @to_email == "" || @name == "" || @email == "" || @message == ""
+      [to_email, name, email, message].map(&:blank?).select { |blank| blank }.any?
     end
 
-    #Send mail
     def send_mail
-      SendMailMailer.send_mail(@to_email, @subject, @email, @message).deliver_later
+      SendMailMailer.send_mail(to_email, subject, email, message).deliver_later
     end
 
-    #redirect before send mail
     def redirect_to_success
-      if @url_success == nil
-        return @redirect_to_success
-      end
-      return @url_success
+      user_provided_url || success_url
     end
+  end
 end
