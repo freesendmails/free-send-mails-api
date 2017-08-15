@@ -37,10 +37,6 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
-
-  
-
-
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
@@ -48,7 +44,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_options = {from: 'ricardograssi91@gmail.com'}
+  config.action_mailer.default_options = {from: 'mail@freesendmails.com'}
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {

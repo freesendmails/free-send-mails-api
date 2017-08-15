@@ -78,7 +78,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => "https://free-send-mail.herokuapp.com"}
 
-  ActionMailer::Base.default :from => 'ricardograssi91@gmail.com'
+  ActionMailer::Base.default :from => 'mail@freesendmails.com'
 
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
