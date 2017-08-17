@@ -1,16 +1,20 @@
-class V1::MailsController < ApplicationController
+module V1
+  class MailsController < ApplicationController
+    def create_mail
+      redirect_to V1::MailService.new(mail_params).send_and_redirect
+    end
 
-  #Process create new mail
-  def create_mail
-    #Using MailService, return url success or error
-    @redirect_to = V1::MailService.new(to_email: params[:to],
-      name: params[:_name],
-      email: params[:_email],
-      message: params[:_message],
-      subject: params[:_subject],
-      url_success: params[:_url_success]).new_mail
+    private
 
-    redirect_to @redirect_to.to_s
+    def mail_params
+      {
+        to_email: params[:to],
+        name: params[:_name],
+        email: params[:_email],
+        message: params[:_message],
+        subject: params[:_subject],
+        url_success: params[:_url_success]
+      }
+    end
   end
-
 end

@@ -35,7 +35,7 @@ Rails.application.configure do
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.
-  config.active_record.migration_error = :page_load
+  # config.active_record.migration_error = :page_load
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
@@ -44,15 +44,15 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_options = {from: 'mail@freesendmails.com'}
+  config.action_mailer.default_options = { from: 'mail@freesendmails.com' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => ENV['MAILGUN_SMTP_SERVER'],
-    :port => ENV['MAILGUN_SMTP_PORT'],
-    :domain => ENV['MAILGUN_DOMAIN'],
-    :user_name => ENV['MAILGUN_SMTP_LOGIN'],
-    :password => ENV['MAILGUN_SMTP_PASSWORD']
+    authentication: :plain,
+    address: ENV['MAILGUN_SMTP_SERVER'],
+    port: ENV['MAILGUN_SMTP_PORT'],
+    domain: ENV['MAILGUN_DOMAIN'],
+    user_name: ENV['MAILGUN_SMTP_LOGIN'],
+    password: ENV['MAILGUN_SMTP_PASSWORD']
   }
 end
