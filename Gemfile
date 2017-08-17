@@ -8,6 +8,7 @@ end
 gem 'rails', '~> 5.0.1'
 gem 'puma', '~> 3.0'
 gem 'rack-cors'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'byebug'
