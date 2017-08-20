@@ -9,8 +9,6 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
-  config.read_encrypted_secrets = true
-
   # Show full error reports.
   config.consider_all_requests_local = true
 
