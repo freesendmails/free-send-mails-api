@@ -33,7 +33,6 @@ Below you will be redirected to the direct demo of the site and you will also be
 
 Familiarize yourself with the code and try to follow the same syntax conventions to make it easier for us to accept your pull requests.
 
-
 ### Getting the Code
 
 1. Clone the free-send-mails-api project:
