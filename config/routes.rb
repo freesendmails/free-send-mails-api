@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
 
     post 'mails/(:to)', to: 'mails#create_mail', constraints: { to: /.+@.+\..*/ }
+    post 'authentication/(:to)', to: 'authenticated#authentication', constraints: { to: /.+@.+\..*/ }
   end
 end
