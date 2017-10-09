@@ -56,6 +56,16 @@ Familiarize yourself with the code and try to follow the same syntax conventions
   $ rails s
   ```
 
+3. Run the redis
+  ```shell
+  $ redis-server
+  ```
+
+4. Run the sidekiq
+  ```shell
+  $ bundle exec sidekiq
+  ```
+  
 ### Run the application - (With Docker)
 
 1. Install dependencies and run application
