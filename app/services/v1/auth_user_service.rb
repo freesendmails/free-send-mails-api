@@ -91,7 +91,7 @@ module V1
       end
 
       def new_instance_firebase
-        return Firebase::Client.new(Rails.application.secrets.secret_url_fire_base, Rails.application.secrets.secret_key_fire_base)
+        return Firebase::Client.new(ENV["SECRET_URL_FIRE_BASE"], ENV["SECRET_KEY_FIRE_BASE"])
       end
   end
 end

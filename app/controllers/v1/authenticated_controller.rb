@@ -25,7 +25,7 @@ module V1
     private
       def authenticated_params
         {
-          email: params[:_to]
+          email: params[:to]
         }
       end
 
