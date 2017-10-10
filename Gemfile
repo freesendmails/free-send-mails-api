@@ -10,6 +10,9 @@ gem 'puma', '~> 3.0'
 gem 'rack-cors'
 gem 'sidekiq'
 gem 'redis'
+gem 'firebase'
+gem 'validation_contract'
+gem 'base58'
 
 group :development, :test do
   gem 'byebug'
