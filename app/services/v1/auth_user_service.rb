@@ -13,13 +13,16 @@ module V1
     end
 
     def user_authenticated
-      return exist_user_authenticated(JSON.parse(get_document_firebase.body.to_json)) if get_document_firebase.success?
+      if get_document_firebase.success?
+        return exist_user_authenticated(get_document_firebase.body)
+      else
+        return @error_url
+      end
     end
 
     def authentication
       @token = Base58.encode(SecureRandom.uuid.delete('-').to_i(16))
-      firebase = Firebase::Client.new(Rails.application.secrets.secret_url_fire_base, Rails.application.secrets.secret_key_fire_base)
-      response = firebase.push("users_authenticated", {
+      response = new_instance_firebase.push("users_authenticated", {
         :email => @email,
         :confirmated => false,
         :created => Date.today,
@@ -35,14 +38,18 @@ module V1
     end
 
     def validation_token_authentication token
-      return valideted_token_authentication(JSON.parse(get_document_firebase.body.to_json), token) if get_document_firebase.success?
+      if get_document_firebase.success?
+        return validated_token_authentication(get_document_firebase.body, token)
+      else
+        return false
+      end
     end
 
     private
       def exist_user_authenticated response
         if response != nil
-          response.each do |resp|
-            if resp[1]['email'] == @email
+          response.each do |key, resp|
+            if resp["email"] == @email && resp["confirmated"]
               return true
             end
           end
@@ -51,17 +58,20 @@ module V1
         return false
       end
 
-      def valideted_token_authentication response, token
+      def validated_token_authentication response, token
         if response != nil
-          response.each do |resp|
-            byebug
-            if resp[1]['token'] == token
-              return true
+          response.each do |key, resp|
+            if resp["token"] == token
+              if update_document_firebase(key, resp).success?
+                return @success_url
+              else
+                return @error_url
+              end
             end
           end
         end
 
-        return false
+        return @error_url
       end
 
       def authentication_mail_mailer token
@@ -71,8 +81,16 @@ module V1
       end
 
       def get_document_firebase
-        firebase = Firebase::Client.new(Rails.application.secrets.secret_url_fire_base, Rails.application.secrets.secret_key_fire_base)
-        return firebase.get("users_authenticated")
+        return new_instance_firebase.get("users_authenticated")
+      end
+
+      def update_document_firebase id, response
+        response["confirmated"] = true
+        return new_instance_firebase.update("users_authenticated/#{id}", response)
+      end
+
+      def new_instance_firebase
+        return Firebase::Client.new(Rails.application.secrets.secret_url_fire_base, Rails.application.secrets.secret_key_fire_base)
       end
   end
 end

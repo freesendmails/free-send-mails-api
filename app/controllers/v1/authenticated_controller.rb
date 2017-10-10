@@ -19,8 +19,7 @@ module V1
 
     def authentication_url
       token_authentication = params[:token_authentication]
-      a = V1::AuthUserService.new("").validation_token_authentication(token_authentication)
-      byebug
+      redirect_to V1::AuthUserService.new("").validation_token_authentication(token_authentication)
     end
 
     private
