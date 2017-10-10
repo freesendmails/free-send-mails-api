@@ -3,7 +3,6 @@ require 'validation_contract'
 module V1
   class AuthenticatedController < ApplicationController
     def authentication
-      byebug
       valition_contract = ValidationContract::Validations.new
       valition_contract.is_email(authenticated_params[:email], "This e-mail #{authenticated_params[:email]} is inválid")
 
