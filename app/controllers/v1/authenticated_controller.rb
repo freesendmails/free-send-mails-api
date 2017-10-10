@@ -3,6 +3,7 @@ require 'validation_contract'
 module V1
   class AuthenticatedController < ApplicationController
     def authentication
+      byebug
       valition_contract = ValidationContract::Validations.new
       valition_contract.is_email(authenticated_params[:email], "This e-mail #{authenticated_params[:email]} is inválid")
 
@@ -12,7 +13,7 @@ module V1
         if !V1::AuthUserService.new(authenticated_params[:email]).user_authenticated
           redirect_to V1::AuthUserService.new(authenticated_params[:email]).authentication
         else
-          redirect_to 'http://youtube.com'
+          redirect_to 'http://www.freesendmails.com/authentication-user-error'
         end
       end
     end
@@ -25,7 +26,7 @@ module V1
     private
       def authenticated_params
         {
-          email: params[:to]
+          email: params[:_to]
         }
       end
 

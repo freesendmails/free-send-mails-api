@@ -8,8 +8,9 @@ module V1
     def initialize(params)
       @email = params
 
-      @error_url = 'http://www.freesendmails.com/test-mail-error'
-      @success_url = 'http://www.freesendmails.com/test-mail-success'
+      @error_url = 'http://www.freesendmails.com/authentication-user-error'
+      @success_url = 'http://www.freesendmails.com/authentication-user-success'
+      @success_url_authenticated = 'http://www.freesendmails.com/authentication-user-success-authenticated'
     end
 
     def user_authenticated
@@ -63,7 +64,7 @@ module V1
           response.each do |key, resp|
             if resp["token"] == token
               if update_document_firebase(key, resp).success?
-                return @success_url
+                return @success_url_authenticated
               else
                 return @error_url
               end

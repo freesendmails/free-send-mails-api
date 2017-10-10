@@ -13,7 +13,7 @@ module V1
         if V1::AuthUserService.new(mail_params[:to_email]).user_authenticated
           redirect_to V1::MailService.new(mail_params).send_and_redirect
         else
-          redirect_to 'http://youtube.com'
+          redirect_to 'http://www.freesendmails.com/authentication-user'
         end
       end
     end
