@@ -17,12 +17,19 @@ module V1
       end
     end
 
-    private
-
-    def authenticated_params
-      {
-        email: params[:to]
-      }
+    def authentication_url
+      token_authentication = params[:token_authentication]
+      a = V1::AuthUserService.new("").validation_token_authentication(token_authentication)
+      byebug
     end
+
+    private
+      def authenticated_params
+        {
+          email: params[:to]
+        }
+      end
+
+
   end
 end

@@ -1,3 +1,6 @@
+require 'base58'
+require 'securerandom'
+
 module V1
   class AuthUserService
     attr_reader :email
@@ -10,20 +13,29 @@ module V1
     end
 
     def user_authenticated
-      firebase = Firebase::Client.new(Rails.application.secrets.secret_url_fire_base, Rails.application.secrets.secret_key_fire_base)
-      response = firebase.get("users_authenticated")
-      return exist_user_authenticated(JSON.parse(response.body.to_json)) if response.success?
+      return exist_user_authenticated(JSON.parse(get_document_firebase.body.to_json)) if get_document_firebase.success?
     end
 
     def authentication
+      @token = Base58.encode(SecureRandom.uuid.delete('-').to_i(16))
       firebase = Firebase::Client.new(Rails.application.secrets.secret_url_fire_base, Rails.application.secrets.secret_key_fire_base)
-      response = firebase.push("users_authenticated", { :email => @email, :confirmated => false, :created => Date.today, :priority => 1 })
+      response = firebase.push("users_authenticated", {
+        :email => @email,
+        :confirmated => false,
+        :created => Date.today,
+        :priority => 1,
+        :token => @token
+      })
       if response.success?
-        authentication_mail_mailer
+        authentication_mail_mailer(@token)
         return @success_url
       else
         return @error_url
       end
+    end
+
+    def validation_token_authentication token
+      return valideted_token_authentication(JSON.parse(get_document_firebase.body.to_json), token) if get_document_firebase.success?
     end
 
     private
@@ -39,8 +51,28 @@ module V1
         return false
       end
 
-      def authentication_mail_mailer
-        AuthenticationMailMailer.authentication_mail_mailer('mail@freesendmails.com', "Confirmation E-mail", @email, '123123').deliver_later
+      def valideted_token_authentication response, token
+        if response != nil
+          response.each do |resp|
+            byebug
+            if resp[1]['token'] == token
+              return true
+            end
+          end
+        end
+
+        return false
+      end
+
+      def authentication_mail_mailer token
+        AuthenticationMailMailer.authentication_mail_mailer('mail@freesendmails.com',
+          "Confirmation E-mail",
+          @email, "https://localhost:3000/v1/authentication/#{token}").deliver_later
+      end
+
+      def get_document_firebase
+        firebase = Firebase::Client.new(Rails.application.secrets.secret_url_fire_base, Rails.application.secrets.secret_key_fire_base)
+        return firebase.get("users_authenticated")
       end
   end
 end
