@@ -78,7 +78,7 @@ module V1
       def authentication_mail_mailer token
         AuthenticationMailMailer.authentication_mail_mailer('mail@freesendmails.com',
           "Confirmation E-mail",
-          @email, "https://localhost:3000/v1/authentication/#{token}").deliver_later
+          @email, "http://www.api.freesendmails.com/v1/authentication/#{token}").deliver_later
       end
 
       def get_document_firebase
