@@ -2,7 +2,7 @@ require 'sidekiq'
 require 'sidekiq/web'
 
 Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
-  [user, password] == [ENV['SECRET_KEY_ACCESS'], ENV['SECRET_KEY_PASSWORD']]
+  [user, password] == [Rails.application.secrets.secret_key_access, Rails.application.secrets.secret_key_password.to_s]
 end
 
 Sidekiq.configure_server do |config|
