@@ -1,6 +1,6 @@
 # Free Send Mails
 
-[![Build Status](https://travis-ci.org/freesendmails/free-send-mails-api.svg?branch=master)](https://travis-ci.org/freesendmails/free-send-mails-api.svg?branch=master)
+[![Build Status](https://travis-ci.org/freesendmails/free-send-mails-api.svg?branch=master)](https://travis-ci.org/freesendmails/free-send-mails-api)
 
 `free send mails` This project is focused on making an email server available to static sites. In a simple and low code.
 
