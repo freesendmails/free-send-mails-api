@@ -8,7 +8,7 @@ module V1
       valition_contract.is_email(mail_params[:email], "This e-mail email is inválid")
 
       if !valition_contract.is_valid
-        render json: {success: false, errors: valition_contract.erros}, status: 200
+        render json: {success: false, errors: valition_contract.erros}, status: 400
       else
         if V1::AuthUserService.new(mail_params[:to_email]).user_authenticated
           redirect_to V1::MailService.new(mail_params).send_and_redirect
