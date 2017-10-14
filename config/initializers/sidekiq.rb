@@ -6,9 +6,9 @@ Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
 end
 
 Sidekiq.configure_server do |config|
-  config.redis = { url: ENV['REDISTOGO_URL']}
+  config.redis = { url: Rails.application.secrets.secret_redis_url}
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = { url: ENV['REDISTOGO_URL']}
+  config.redis = { url: Rails.application.secrets.secret_redis_url}
 end
