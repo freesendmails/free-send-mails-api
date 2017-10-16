@@ -18,5 +18,5 @@ RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 COPY Gemfile $INSTALL_PATH/Gemfile
 COPY Gemfile.lock $INSTALL_PATH/Gemfile.lock
-RUN bundle install --without development test
+RUN bundle install
 COPY . .

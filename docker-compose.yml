@@ -3,14 +3,20 @@ version: '2'
 services:
 
   website:
+    build: .
+    command: puma -C config/puma.rb
     depends_on:
       - 'redis'
-    build: .
     ports:
       - '3000:3000'
     volumes:
       - '.:/usr/src/app'
-    command: puma -C config/puma.rb
+
+  tests:
+    build: .
+    command: bundle exec rspec
+    volumes:
+      - '.:/usr/src/app'
 
   redis:
     image: 'redis:3.2-alpine'
