@@ -1,7 +1,6 @@
 FROM ruby:2.3-slim
 
-RUN apt-get update && apt-get install -qq -y --no-install-recommends \
-      build-essential nodejs
+RUN apt-get update && apt-get install -y build-essential nodejs
 
 ENV APP_FOLDER /usr/src/app
 ENV BUNDLE_JOBS=4
