@@ -20,4 +20,3 @@ COPY Gemfile $INSTALL_PATH/Gemfile
 COPY Gemfile.lock $INSTALL_PATH/Gemfile.lock
 RUN bundle install --without development test
 COPY . .
-CMD puma -C config/puma.rb
