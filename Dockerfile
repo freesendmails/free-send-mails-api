@@ -8,7 +8,6 @@ ENV MAILGUN_SMTP_PORT replaceme
 ENV MAILGUN_DOMAIN replaceme
 ENV MAILGUN_SMTP_LOGIN replaceme
 ENV MAILGUN_SMTP_PASSWORD replaceme
-ENV RAILS_LOG_TO_STDOUT true
 ENV SECRET_KEY_BASE replaceme
 RUN echo 'gem: --no-document' > /etc/gemrc
 
