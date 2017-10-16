@@ -3,7 +3,6 @@ FROM ruby:2.3-slim
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
       build-essential nodejs
 
-ENV RAILS_ENV production
 ENV MAILGUN_SMTP_SERVER replaceme
 ENV MAILGUN_SMTP_PORT replaceme
 ENV MAILGUN_DOMAIN replaceme

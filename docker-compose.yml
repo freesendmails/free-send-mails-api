@@ -4,6 +4,8 @@ services:
 
   website:
     build: .
+    environment:
+      - RAILS_ENV=development
     command: puma -C config/puma.rb
     depends_on:
       - 'redis'
@@ -14,6 +16,8 @@ services:
 
   tests:
     build: .
+    environment:
+      - RAILS_ENV=test
     command: bundle exec rspec
     volumes:
       - '.:/usr/src/app'
