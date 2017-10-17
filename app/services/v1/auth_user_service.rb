@@ -23,7 +23,7 @@ module V1
 
     def authentication
       @token = Base58.encode(SecureRandom.uuid.delete('-').to_i(16))
-      response = new_instance_firebase.push("users_authenticated", {
+      response = firebase_client.push("users_authenticated", {
         :email => @email,
         :confirmated => false,
         :created => Date.today,
@@ -82,16 +82,16 @@ module V1
       end
 
       def get_document_firebase
-        return new_instance_firebase.get("users_authenticated")
+        return firebase_client.get("users_authenticated")
       end
 
       def update_document_firebase id, response
         response["confirmated"] = true
-        return new_instance_firebase.update("users_authenticated/#{id}", response)
+        return firebase_client.update("users_authenticated/#{id}", response)
       end
 
-      def new_instance_firebase
-        return Firebase::Client.new(Rails.application.secrets.secret_url_fire_base, Rails.application.secrets.secret_key_fire_base)
+      def firebase_client
+        @firebase_client ||= Firebase::Client.new(Rails.application.secrets.secret_url_fire_base, Rails.application.secrets.secret_key_fire_base)
       end
   end
 end
