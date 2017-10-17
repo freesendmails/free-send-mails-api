@@ -5,19 +5,19 @@ module V1
   class AuthUserService
     attr_reader :email
 
-    def initialize(params)
-      @email = params
+    ERROR_URL = 'http://www.freesendmails.com/authentication-user-error'
+    SUCCESS_URL = 'http://www.freesendmails.com/authentication-user-success'
+    SUCCESS_URL_AUTHENTICATED = 'http://www.freesendmails.com/authentication-user-success-authenticated'
 
-      @error_url = 'http://www.freesendmails.com/authentication-user-error'
-      @success_url = 'http://www.freesendmails.com/authentication-user-success'
-      @success_url_authenticated = 'http://www.freesendmails.com/authentication-user-success-authenticated'
+    def initialize(email)
+      @email = email
     end
 
     def user_authenticated
       if get_document_firebase.success?
         return exist_user_authenticated(get_document_firebase.body)
       else
-        return @error_url
+        return ERROR_URL
       end
     end
 
@@ -32,9 +32,9 @@ module V1
       })
       if response.success?
         authentication_mail_mailer(@token)
-        return @success_url
+        return SUCCESS_URL
       else
-        return @error_url
+        return ERROR_URL
       end
     end
 
@@ -64,15 +64,15 @@ module V1
           response.each do |key, resp|
             if resp["token"] == token
               if update_document_firebase(key, resp).success?
-                return @success_url_authenticated
+                return SUCCESS_URL_AUTHENTICATED
               else
-                return @error_url
+                return ERROR_URL
               end
             end
           end
         end
 
-        return @error_url
+        return ERROR_URL
       end
 
       def authentication_mail_mailer token
