@@ -23,7 +23,7 @@ module V1
 
     def authentication
       token = Base58.encode(SecureRandom.uuid.delete('-').to_i(16))
-      response = firebase_client.push("users_authenticated", {
+      response = firebase_client.push('users_authenticated', {
         :email => @email,
         :confirmated => false,
         :created => Date.today,
@@ -50,7 +50,7 @@ module V1
       def exist_user_authenticated response
         if response != nil
           response.each do |key, resp|
-            if resp["email"] == @email && resp["confirmated"]
+            if resp['email'] == @email && resp['confirmated']
               return true
             end
           end
@@ -62,7 +62,7 @@ module V1
       def validated_token_authentication response, token
         if response != nil
           response.each do |key, resp|
-            if resp["token"] == token
+            if resp['token'] == token
               if update_document_firebase(key, resp).success?
                 return SUCCESS_URL_AUTHENTICATED
               else
@@ -77,16 +77,16 @@ module V1
 
       def authentication_mail_mailer token
         AuthenticationMailMailer.authentication_mail_mailer('mail@freesendmails.com',
-          "Confirmation E-mail",
+          'Confirmation E-mail',
           @email, "http://www.api.freesendmails.com/v1/authentication/#{token}").deliver_later
       end
 
       def get_document_firebase
-        return firebase_client.get("users_authenticated")
+        return firebase_client.get('users_authenticated')
       end
 
       def update_document_firebase id, response
-        response["confirmated"] = true
+        response['confirmated'] = true
         return firebase_client.update("users_authenticated/#{id}", response)
       end
 
