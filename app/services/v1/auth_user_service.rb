@@ -22,16 +22,16 @@ module V1
     end
 
     def authentication
-      @token = Base58.encode(SecureRandom.uuid.delete('-').to_i(16))
+      token = Base58.encode(SecureRandom.uuid.delete('-').to_i(16))
       response = firebase_client.push("users_authenticated", {
         :email => @email,
         :confirmated => false,
         :created => Date.today,
         :priority => 1,
-        :token => @token
+        :token => token
       })
       if response.success?
-        authentication_mail_mailer(@token)
+        authentication_mail_mailer(token)
         return SUCCESS_URL
       else
         return ERROR_URL
