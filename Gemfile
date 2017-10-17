@@ -21,6 +21,11 @@ group :development, :test do
   gem 'ffaker'
 end
 
+group :test do
+  gem 'webmock'
+  gem 'vcr'
+end
+
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
