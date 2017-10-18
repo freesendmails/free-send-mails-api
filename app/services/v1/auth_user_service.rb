@@ -76,9 +76,12 @@ module V1
       end
 
       def authentication_mail_mailer token
-        AuthenticationMailMailer.authentication_mail_mailer('mail@freesendmails.com',
+        AuthenticationMailMailer.authentication_mail_mailer(
+          'mail@freesendmails.com',
           'Confirmation E-mail',
-          email, "http://www.api.freesendmails.com/v1/authentication/#{token}").deliver_later
+          email,
+          "http://www.api.freesendmails.com/v1/authentication/#{token}"
+        ).deliver_later
       end
 
       def get_document_firebase
@@ -91,7 +94,10 @@ module V1
       end
 
       def firebase_client
-        @firebase_client ||= Firebase::Client.new(Rails.application.secrets.secret_url_fire_base, Rails.application.secrets.secret_key_fire_base)
+        @firebase_client ||= Firebase::Client.new(
+          Rails.application.secrets.secret_url_fire_base,
+          Rails.application.secrets.secret_key_fire_base
+        )
       end
   end
 end
