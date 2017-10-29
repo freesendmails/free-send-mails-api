@@ -3,6 +3,7 @@
 ![ruby](https://img.shields.io/badge/Ruby-2.4.2-green.svg)
 ![rails](https://img.shields.io/badge/Rails-5.0.1-green.svg)
 [![Build Status](https://travis-ci.org/freesendmails/free-send-mails-api.svg?branch=master)](https://travis-ci.org/freesendmails/free-send-mails-api)
+[![Maintainability](https://api.codeclimate.com/v1/badges/dcb16cdaa411cc3d63ab/maintainability)](https://codeclimate.com/github/freesendmails/free-send-mails-api/maintainability)
 
 `free send mails` This project is focused on making an email server available to static sites. In a simple and low code.
 
