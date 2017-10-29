@@ -16,9 +16,9 @@ gem 'base58'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails'
-  gem 'factory_girl'
+  gem 'factory_bot'
   gem 'ffaker'
+  gem 'rspec-rails'
 end
 
 group :development do
