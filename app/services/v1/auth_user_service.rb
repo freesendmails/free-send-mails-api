@@ -14,11 +14,8 @@ module V1
     end
 
     def user_authenticated
-      if document_firebase.success?
-        exist_user_authenticated(document_firebase.body)
-      else
-        ERROR_URL
-      end
+      return ERROR_URL unless document_firebase.success?
+      exist_user_authenticated(document_firebase.body)
     end
 
     def authentication
@@ -29,20 +26,16 @@ module V1
                                       created: Date.today,
                                       priority: 1,
                                       token: token)
-      if response.success?
-        authentication_mail_mailer(token)
-        SUCCESS_URL
-      else
-        ERROR_URL
-      end
+
+      return ERROR_URL unless response.success?
+
+      authentication_mail_mailer(token)
+      SUCCESS_URL
     end
 
     def validation_token_authentication(token)
-      if document_firebase.success?
-        validated_token_authentication(document_firebase.body, token)
-      else
-        false
-      end
+      return false unless document_firebase.success?
+      validated_token_authentication(document_firebase.body, token)
     end
 
     private
@@ -60,11 +53,8 @@ module V1
 
       response.each do |key, resp|
         if resp['token'] == token
-          if update_document_firebase(key, resp).success?
-            return SUCCESS_URL_AUTHENTICATED
-          else
-            return ERROR_URL
-          end
+          return SUCCESS_URL_AUTHENTICATED if update_document_firebase(key, resp).success?
+          return ERROR_URL
         end
       end
     end
