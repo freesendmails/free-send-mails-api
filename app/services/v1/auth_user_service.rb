@@ -56,7 +56,7 @@ module V1
     end
 
     def validated_token_authentication(response, token)
-      if reponse
+      if response
         response.each do |key, resp|
           if resp['token'] == token
             if update_document_firebase(key, resp).success?
