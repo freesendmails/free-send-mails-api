@@ -5,15 +5,16 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.0.1'
+gem 'base58'
+gem 'firebase'
+gem 'nokogiri', '~> 1.10.4'
 gem 'puma', '~> 3.0'
 gem 'rack-cors'
-gem 'sidekiq'
+gem 'rails', '~> 5.0.7.2'
 gem 'redis'
-gem 'firebase'
-gem 'validation_contract', '~> 0.1.10'
-gem 'base58'
 gem 'rubocop', '~> 0.51.0', require: false
+gem 'sidekiq'
+gem 'validation_contract', '~> 0.1.10'
 
 group :development, :test do
   gem 'byebug'
@@ -22,7 +23,13 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'vcr'
+  gem 'webmock'
+end
+
 group :development do
+  gem 'ffi', '~> 1.9.24'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

@@ -8,6 +8,7 @@
 `free send mails` This project is focused on making an email server available to static sites. In a simple and low code.
 
 `Example:`
+
 ```html
 <form action="http://www.api.freesendmails.com/v1/mails/youmail" method="POST">
   <div>
@@ -30,9 +31,9 @@
 
 Below you will be redirected to the direct demo of the site and you will also be able to see the two repositories of application codes.
 
-- [Live Demo](http://www.freesendmails.com/test-mail)
-- [Source code - Client](https://github.com/grassiricardo/free-send-mails-client)
-- [Source code - Api](https://github.com/grassiricardo/free-send-mails-api)
+-   [Live Demo](http://www.freesendmails.com/test-mail)
+-   [Source code - Client](https://github.com/grassiricardo/free-send-mails-client)
+-   [Source code - Api](https://github.com/grassiricardo/free-send-mails-api)
 
 ## Development
 
@@ -40,41 +41,41 @@ Familiarize yourself with the code and try to follow the same syntax conventions
 
 ### Getting the Code
 
-1. Clone the free-send-mails-api project:
+1.  Clone the free-send-mails-api project:
 
-  ```shell
-  $ git clone https://github.com/grassiricardo/free-send-mails-api.git
-  $ cd free-send-mails-api
-  ```
+    ```shell
+    $ git clone https://github.com/grassiricardo/free-send-mails-api.git
+    $ cd free-send-mails-api
+    ```
 
 ### Run the application - (Without Docker)
 
-1. Install dependencies. We assume that you have already installed `Ruby on Rails` in your system.
+1.  Install dependencies. We assume that you have already installed `Ruby on Rails` in your system.
 
-  ```shell
-  $ bundler
-  ```
+    ```shell
+    $ bundler
+    ```
 
-2. Run the application.
+2.  Run the application.
 
-  ```shell
-  $ rails s
-  ```
+    ```shell
+    $ rails s
+    ```
 
-3. Run the redis
-  ```shell
-  $ redis-server
-  ```
+3.  Run the redis
+    ```shell
+    $ redis-server
+    ```
 
-4. Run the sidekiq
-  ```shell
-  $ bundle exec sidekiq
-  ```
+4.  Run the sidekiq
+    ```shell
+    $ bundle exec sidekiq
+    ```
 
 ### Run the application - (With Docker)
 
-1. Install dependencies and run application
+1.  Install dependencies and run application
 
-  ```shell
-  $ docker-compose up --build
-  ```
+    ```shell
+    $ docker-compose up --build
+    ```

@@ -1,0 +1,290 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://test123.firebaseio.com/users_authenticated.json?auth=123123123123
+    body:
+      encoding: UTF-8
+      string: '{"email":"xyz@example.com","confirmated":false,"created":"2017-10-18","priority":1,"token":"abcd9876"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 18 Oct 2017 12:42:16 GMT
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Oct 2017 12:42:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '31'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"name":"-KwjVNBfshMA1XVFk7qR"}'
+    http_version:
+  recorded_at: Wed, 18 Oct 2017 12:42:18 GMT
+- request:
+    method: get
+    uri: https://test123.firebaseio.com/users_authenticated.json?auth=123123123123
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 18 Oct 2017 12:42:18 GMT
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Oct 2017 12:42:19 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '127'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"-KwjVNBfshMA1XVFk7qR":{"confirmated":false,"created":"2017-10-18","email":"xyz@example.com","priority":1,"token":"abcd9876"}}'
+    http_version:
+  recorded_at: Wed, 18 Oct 2017 12:42:19 GMT
+- request:
+    method: get
+    uri: https://test123.firebaseio.com/users_authenticated.json?auth=123123123123
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 18 Oct 2017 12:42:19 GMT
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Oct 2017 12:42:20 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '127'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"-KwjVNBfshMA1XVFk7qR":{"confirmated":false,"created":"2017-10-18","email":"xyz@example.com","priority":1,"token":"abcd9876"}}'
+    http_version:
+  recorded_at: Wed, 18 Oct 2017 12:42:21 GMT
+- request:
+    method: post
+    uri: https://test123.firebaseio.com/users_authenticated.json?auth=123123123123
+    body:
+      encoding: UTF-8
+      string: '{"email":"xyz@example.com","confirmated":false,"created":"2017-10-18","priority":1,"token":"aFDKkWfr8WGsKrtU9qKHkH"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 18 Oct 2017 12:42:21 GMT
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Oct 2017 12:42:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '31'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"name":"-KwjVOKCJRSG2E12Ov24"}'
+    http_version:
+  recorded_at: Wed, 18 Oct 2017 12:42:22 GMT
+- request:
+    method: get
+    uri: https://test123.firebaseio.com/users_authenticated.json?auth=123123123123
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 18 Oct 2017 12:42:22 GMT
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Oct 2017 12:42:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '267'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"-KwjVNBfshMA1XVFk7qR":{"confirmated":false,"created":"2017-10-18","email":"xyz@example.com","priority":1,"token":"abcd9876"},"-KwjVOKCJRSG2E12Ov24":{"confirmated":false,"created":"2017-10-18","email":"xyz@example.com","priority":1,"token":"aFDKkWfr8WGsKrtU9qKHkH"}}'
+    http_version:
+  recorded_at: Wed, 18 Oct 2017 12:42:24 GMT
+- request:
+    method: get
+    uri: https://test123.firebaseio.com/users_authenticated.json?auth=123123123123
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 18 Oct 2017 12:42:24 GMT
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Oct 2017 12:42:25 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '267'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"-KwjVNBfshMA1XVFk7qR":{"confirmated":false,"created":"2017-10-18","email":"xyz@example.com","priority":1,"token":"abcd9876"},"-KwjVOKCJRSG2E12Ov24":{"confirmated":false,"created":"2017-10-18","email":"xyz@example.com","priority":1,"token":"aFDKkWfr8WGsKrtU9qKHkH"}}'
+    http_version:
+  recorded_at: Wed, 18 Oct 2017 12:42:25 GMT
+- request:
+    method: get
+    uri: https://test123.firebaseio.com/users_authenticated.json?auth=123123123123
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 18 Oct 2017 12:42:25 GMT
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 18 Oct 2017 12:42:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '267'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"-KwjVNBfshMA1XVFk7qR":{"confirmated":false,"created":"2017-10-18","email":"xyz@example.com","priority":1,"token":"abcd9876"},"-KwjVOKCJRSG2E12Ov24":{"confirmated":false,"created":"2017-10-18","email":"xyz@example.com","priority":1,"token":"aFDKkWfr8WGsKrtU9qKHkH"}}'
+    http_version:
+  recorded_at: Wed, 18 Oct 2017 12:42:27 GMT
+recorded_with: VCR 3.0.3
