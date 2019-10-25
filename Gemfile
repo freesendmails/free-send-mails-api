@@ -14,6 +14,7 @@ gem 'firebase'
 gem 'validation_contract', '~> 0.1.10'
 gem 'base58'
 gem 'rubocop', '~> 0.51.0', require: false
+gem 'nokogiri', '~> 1.10.4'
 
 group :development, :test do
   gem 'byebug'
