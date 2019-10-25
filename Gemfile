@@ -10,7 +10,7 @@ gem 'firebase'
 gem 'nokogiri', '~> 1.10.4'
 gem 'puma', '~> 3.0'
 gem 'rack-cors'
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.0.7.2'
 gem 'redis'
 gem 'rubocop', '~> 0.51.0', require: false
 gem 'sidekiq'
@@ -29,6 +29,7 @@ group :test do
 end
 
 group :development do
+  gem 'ffi', '~> 1.9.24'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
