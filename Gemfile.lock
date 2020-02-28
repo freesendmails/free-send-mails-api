@@ -82,7 +82,7 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     powerpack (0.1.1)
-    puma (3.10.0)
+    puma (3.12.3)
     rack (2.0.3)
     rack-cors (1.0.2)
     rack-protection (2.0.0)
@@ -181,7 +181,7 @@ DEPENDENCIES
   ffaker
   firebase
   listen (~> 3.0.5)
-  puma (~> 3.0)
+  puma (~> 3.12)
   rack-cors
   rails (~> 5.0.1)
   redis
